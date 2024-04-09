@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PKL4you</title>
+        <link rel="stylesheet" href="..\static\main_style.css">
+        <script src="..\static\main_js.js" defer></script>
+    </head>
+
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navigation_block" id="navigation">
+        <ul class="navigation_spisok" id="nav_spisok">
+            <li class="navigation"><a href="main.html">Главная</a></li>
+            <li class="navigation" id="finish_page"> </li>
+        </ul>
+    </nav>
+
+     <!-- Кратчайшая инструкция -->
+     <p>Выберите критерии и функции предпочтения</p>
+
+    <!-- Главный блок -->
+   <div class="main_block">
+        <!-- Критерии -->
+        <div id="div_kriteri">
+            <table class="kriteri_table" id="id_kriteri_table">
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K1 - стоимость (условных единиц)
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K1" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K1"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K1" id="K1_check">
+                        <label for="K1_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K1"  onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K2 - количество (условных единиц)
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K2" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K2"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K2" id="K2_check">
+                        <label for="K2_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K2" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K3 - количество входов
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K3" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K3"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K3" id="K3_check">
+                        <label for="K3_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K3" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K4 - количество выходов
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K4" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K4"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K4" id="K4_check">
+                        <label for="K4_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K4" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K5 - объём постоянной памяти (в МБ)
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K5" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K5"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K5" id="K5_check">
+                        <label for="K5_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K5" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K6 - объём оперативной памяти (в МБ)
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K6" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K6"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K6" id="K6_check">
+                        <label for="K6_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K6" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+            </table>
+
+            <button type="button" name="popup-button" id="button_create_table">Создать таблицу</button>
+            <button type="button" name="popup-button" id="button_add_alternativ">Добавить альтернативу</button>
+            <button type="button" name="popup-button" id="button_delete_alternativ">Убрать альтернативу</button>
+            <button type="button" name="popup-button" id="button_start_algoritm">Начать вычисления</button>
+        </div>
+        
+
+         <!-- Таблица альтернатив-->
+         <div id="div_alternativ_table">
+            
+
+        </div>
+    </div>
+</body>
+
+</html>

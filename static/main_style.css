@@ -1,0 +1,200 @@
+/* webkit*/
+input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+               -webkit-appearance: none;
+                margin: 0;
+        }
+ 
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+/* навигационная панель rgba(79, 154, 212, 0.871);*/
+nav.navigation_block
+{
+    background-color:rgb(0, 0, 0);
+    overflow: hidden;
+    width: 100%;
+    
+}
+
+ul.navigation_spisok
+{
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.navigation
+{
+    float: left;
+}
+
+li.navigation a
+{
+    display: block;
+    text-align: center;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+li.navigation_about a
+{
+    display: block;
+    float: right;
+    text-align: center;
+    color: white;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+li.navigation a:hover 
+{
+    background-color: #c0c0c0;
+}
+
+li.navigation_about a:hover 
+{
+    background-color: #111;
+}
+
+/* основной блок - боди*/
+body
+{
+    background-color: rgb(226, 223, 223);
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+
+.main_block
+{
+    display: flex;
+    flex-direction: row;
+}
+
+p
+{
+    margin: 1% 2%;
+    line-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size:large;
+    color: rgb(21, 20, 20);
+}
+
+li
+{
+    color: rgb(21, 20, 20);
+}
+
+
+h1
+{
+    color: rgb(21, 20, 20);
+    margin: 5px 5px;
+    padding: 1px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+h2
+{
+    color: rgb(21, 20, 20);
+    margin: 1px 11px;
+    padding: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+h3
+{
+    color: rgb(21, 20, 20);
+    margin: 1px 11px;
+    padding: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: larger;
+}
+
+
+
+
+/* Таблица с критериями*/
+
+#div_kriteri
+{
+    margin: 0% 2%;
+}
+
+.kriteri_table
+{   
+    display: table;
+    border-spacing: 0.2em;
+}
+
+.kriteri_table_row
+{
+    display: table-row;
+}
+
+.kriteri_table td
+{
+    display: table-cell;
+    width: 11.5vw;
+
+}
+
+.select_function_preference
+{
+    width: 70%;
+    outline: 0px;
+}
+
+
+
+.input_number_kriteri
+{
+    width: 2em;
+}
+
+
+
+
+
+
+/* Таблица с альтернативами*/
+
+#div_alternativ_table
+{
+    margin-left: auto;
+    margin-right: 10%;
+}
+
+.input_number_alternativ
+{
+    width: 80%;
+}
+
+.alternativ_table
+{
+    border: 1px solid;
+    border-collapse: collapse ;
+}
+
+.alternativ_table th
+{
+    border: 1px solid;
+}
+
+.alternativ_table td
+{
+    border: 1px solid;
+    width: 10px;
+}
