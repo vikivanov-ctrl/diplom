@@ -138,14 +138,22 @@ def PROMETHEEII(information):
 
     #Итоговое ранжирование
     itog_rang=[]
-    for i in range (len(clear_flow_matrix)):
-        max_value = max(clear_flow_matrix_copy)
-        ind=clear_flow_matrix_copy.index(max_value)
-        itog_rang.append(nameAlternativ[ind])
-        clear_flow_matrix_copy[ind]=-1000
+    original_index={}
+    for i in range(len(nameAlternativ)):
+        original_index["A"+str(i+1)]=clear_flow_matrix[i]
+    original_index=sorted(original_index.items(), reverse=True)
+    original_index_sort=dict(original_index)
+    #Проверка полученного словаря
+    print(original_index_sort)
 
+    for key in original_index_sort:
+        itog_rang.append(key)
+    
     for el in itog_rang:
-        print(el+">",end=" ")
+        print (el, end=' ')
+        if (itog_rang.index(el)+1)!= len(itog_rang):
+            print(">", end=' ')
+
 
     return 1
 
