@@ -55,7 +55,7 @@
 
                 <tr class="kriteri_table_row"> 
                     <td> 
-                        K2 - количество ПКЛ
+                        K2 - частота процессора (в ГГц)
                     </td> 
 
                     <td>
@@ -82,7 +82,7 @@
 
                 <tr class="kriteri_table_row"> 
                     <td> 
-                        K3 - количество входов
+                        K3 - количество ядер процессора
                     </td> 
 
                     <td>
@@ -109,7 +109,7 @@
 
                 <tr class="kriteri_table_row"> 
                     <td> 
-                        K4 - количество выходов
+                        K4 – объём постоянной памяти (в МБ)
                     </td> 
 
                     <td>
@@ -136,7 +136,7 @@
 
                 <tr class="kriteri_table_row"> 
                     <td> 
-                        K5 - объём постоянной памяти (в МБ)
+                        K5 - объём оперативной памяти (в МБ)
                     </td> 
 
                     <td>
@@ -163,7 +163,7 @@
 
                 <tr class="kriteri_table_row"> 
                     <td> 
-                        K6 - объём оперативной памяти (в МБ)
+                        K6 - объём встраиваемой flash – памяти (в МБ)
                     </td> 
 
                     <td>
@@ -178,6 +178,195 @@
 
                     <td class="cell_function_preference"> 
                         <select class="select_function_preference" id="function_preference_K6" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K7 - количество выходов
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K7" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K7"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K7" id="K7_check">
+                        <label for="K7_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K7" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K8 - количество входов
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K8" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K8"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K8" id="K8_check">
+                        <label for="K8_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K8" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K9 - количество портов Ethernet.
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K9" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K9"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K9" id="K9_check">
+                        <label for="K9_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K9" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K10 – количество портов RS – 485
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K10" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K10"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K10" id="K10_check">
+                        <label for="K10_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K10" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K11 – количество портов CAN.
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K11" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K11"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K11" id="K11_check">
+                        <label for="K11_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K11" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K12 – количество портов USB
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K12" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K12"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K12" id="K12_check">
+                        <label for="K12_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K12" onchange="selectFunction(this);">
+                            <option value="1">Обычная функция</option>
+                            <option value="2">U-образная функция</option>
+                            <option value="3">V-образная функция</option>
+                            <option value="4">Уровневая функция</option>
+                            <option value="5">V-образная функция с интервалом безразличия</option>
+                            <option value="6">Гауссова функция</option>
+                        </select>
+                    </td> 
+                </tr>
+
+                <tr class="kriteri_table_row"> 
+                    <td> 
+                        K13 – срок гарантии (месяцев).
+                    </td> 
+
+                    <td>
+                        <input type="number" class="input_number_kriteri" id="input_weight_K13" value="0.1" onchange="weightFormatFun(this);">
+                        <label for="input_weight_K13"> Вес важности (от 0 до 1)</label>
+                    </td>
+
+                    <td> 
+                        <input type="checkbox" name="K13" id="K13_check">
+                        <label for="K13_check">Добавить критерий в таблицу</label>
+                    </td> 
+
+                    <td class="cell_function_preference"> 
+                        <select class="select_function_preference" id="function_preference_K13" onchange="selectFunction(this);">
                             <option value="1">Обычная функция</option>
                             <option value="2">U-образная функция</option>
                             <option value="3">V-образная функция</option>

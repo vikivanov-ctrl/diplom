@@ -4,7 +4,7 @@ function createTable()
     alternativNow=1;
     // массивы
     howManykriteriNow.length=0;
-    const check= new Array("K1_check","K2_check","K3_check","K4_check", "K5_check", "K6_check");
+    const check= new Array("K1_check","K2_check","K3_check","K4_check", "K5_check", "K6_check", "K7_check", "K8_check", "K9_check", "K10_check", "K11_check", "K12_check", "K13_check");
     const minMax=new Array("min","max");
     // родительский див и таблица
     var div=document.getElementById("div_alternativ_table");
