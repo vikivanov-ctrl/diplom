@@ -164,11 +164,6 @@ h3
     width: 2em;
 }
 
-
-
-
-
-
 /* Таблица с альтернативами*/
 
 #div_alternativ_table
@@ -197,4 +192,28 @@ h3
 {
     border: 1px solid;
     width: 10px;
+}
+
+/* Итоговые таблицы*/
+.div_itog_table
+{
+    margin-left: 2.5em;
+}
+
+.itog_table
+{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+.itog_table_tr
+{
+    border: 1px #111;
+}
+.itog_table_td
+{
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 0.2em;
+    text-align: center;
+    white-space: nowrap;
 }

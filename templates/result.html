@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PKL4you</title>
+        <link rel="stylesheet" href="..\static\main_style.css">
+        <script src=""></script>
+    </head>
+
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navigation_block">
+        <ul class="navigation_spisok">
+            <li class="navigation"><a href="/result">Результат</a></li>
+        </ul>
+    </nav>
+
+    <p>Значения разностей для каждой пары альтернатив:</p>
+    <div class="div_itog_table">
+        <table class="itog_table">
+            {% for i in range(pairwise|length) %}
+            <tr>
+                <th class="itog_table_td"><p>{{ index[i] }}</p></th>
+                {% for j in range(pairwise[i]|length) %}
+                    <td class="itog_table_td"><p>{{ pairwise[i][j] }}</p></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>Значения функций предпочтения и агрегированные индексы:</p>
+    <div class="div_itog_table">
+        <table class="itog_table">
+            <tr>
+                <th></th>
+                {% for el in kriteri %}
+                    <th class="itog_table_td"><p>{{ el }}</p></th>
+                {% endfor %}
+            </tr>
+            {% for i in range(prefer|length) %}
+            <tr>
+                <th class="itog_table_td"><p>{{ index[i] }}</p></th>
+                {% for j in range(prefer[i]|length) %}
+                    <td class="itog_table_td"><p>{{ prefer[i][j] }}</p></td>
+                {% endfor %}
+                    <td class="itog_table_td"><p>{{ agregat[i] }}</p></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>Опережающие потоки:</p>
+    <div class="div_itog_table">
+        <table class="itog_table">
+            <tr>
+                <th class="itog_table_td"><p>π(Ai,Aj)</p></th>
+                {% for el in alt %}
+                    <th class="itog_table_td"><p>{{ el }}</p></th>
+                {% endfor %}
+                <th><p>ф+</p></th>
+            </tr>
+            {% for i in range(flow|length) %}
+            <tr>
+                <th class="itog_table_td"><p>{{ alt[i] }}</p></th>
+                {% for j in range(flow[i]|length) %}
+                    <td class="itog_table_td"><p>{{ flow[i][j] }}</p></td>
+                {% endfor %}
+                    <td class="itog_table_td"><p>{{ flow_plus[i] }}</p></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th class="itog_table_td"><p>ф-</p></th>
+                {% for el in flow_minus %}
+                    <td class="itog_table_td"><p>{{ el }}</p></th>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+
+    <p>Чистый поток:</p>
+    <div class="div_itog_table">
+        <table class="itog_table">
+            <tr>
+                <th class="itog_table_td"></th>
+                <th class="itog_table_td"><p>ф+(A<span style="font-size:small;">i</span>)</p></th>
+                <th class="itog_table_td"><p>ф-(A<span style="font-size:small;">j</span>)</p></th>
+                <th class="itog_table_td"><p>ф(A<span style="font-size:small;">i</span>)</p></th>
+            </tr>
+            {% for i in range(flow_clear|length) %}
+            <tr>
+                <th class="itog_table_td"><p>{{ alt[i] }}</p></th>
+                <td class="itog_table_td"><p>{{ flow_plus[i] }}</p></td>
+                <td class="itog_table_td"><p>{{ flow_minus[i] }}</p></td>
+                <td class="itog_table_td"><p>{{ flow_clear[i] }}</p></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>Итоговое ранжирование: {{ rang }}</p>
+
+    <p>
+
+    </p>
+</body>
+    
+</html>

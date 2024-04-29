@@ -262,9 +262,9 @@ function startAlgoritm()
         li.removeChild(document.getElementById("a_finish_page"));
     }
     var a=document.createElement("a");
-    a.setAttribute("href","algoritm.html");
+    a.setAttribute("href","/result");
     a.setAttribute("id","a_finish_page")
-    //a.setAttribute("target","_blank");
+    a.setAttribute("target","_blank");
     a.appendChild(document.createTextNode("Результат"));
     li.appendChild(a);
 
