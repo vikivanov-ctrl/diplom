@@ -57,8 +57,8 @@ function createTable()
     tr=table.insertRow();
     //лишняя ячейка для альтернатив
     var tdAlt=tr.insertCell();
-    tdAlt.appendChild(document.createTextNode("A1"))
-    tdAlt.setAttribute("class","table_")
+    tdAlt.appendChild(document.createTextNode("A1"));
+    tdAlt.setAttribute("class","table_");
     //создаем ячейки с инпутами
     shet=1;
     for(var i=0;i<check.length;i++)
@@ -108,8 +108,8 @@ function addAlternativ()
     alternativNow=alternativNow+1;
     var table=document.getElementById("alternativ_table_id");
     tr=table.insertRow();
-    var tdAlt=tr.insertCell()
-    tdAlt.appendChild(document.createTextNode("A"+alternativNow))
+    var tdAlt=tr.insertCell();
+    tdAlt.appendChild(document.createTextNode("A"+alternativNow));
     for (i=0;i<howManykriteriNow.length;i++)
     {
         var td=tr.insertCell();
@@ -161,7 +161,7 @@ function selectFunction(sel) {
             
             var td=row.insertCell();
             td.setAttribute("id",sel.id+"_last_cell");
-            td.innerText="q:"
+            td.innerText="q:";
             var qNumber=document.createElement("input");
             qNumber.setAttribute("type","number");
             qNumber.setAttribute("class","input_number_kriteri");
@@ -243,7 +243,7 @@ function selectFunction(sel) {
             
             var td=row.insertCell();
             td.setAttribute("id",sel.id+"_last_cell");
-            td.innerText="s:"
+            td.innerText="s:";
             var qNumber=document.createElement("input");
             qNumber.setAttribute("type","number");
             qNumber.setAttribute("class","input_number_kriteri");
@@ -256,24 +256,12 @@ function selectFunction(sel) {
 //Функция начала алгоритма
 function startAlgoritm()
 {
-    var li=document.getElementById("finish_page");
-    if (document.getElementById("a_finish_page"))
-    {
-        li.removeChild(document.getElementById("a_finish_page"));
-    }
-    var a=document.createElement("a");
-    a.setAttribute("href","/result");
-    a.setAttribute("id","a_finish_page")
-    a.setAttribute("target","_blank");
-    a.appendChild(document.createTextNode("Результат"));
-    li.appendChild(a);
-
     //Забираем из select данные
     for(var i=0;i<howManykriteriNow.length;i++)
     {   
         var nameId="function_preference_"+howManykriteriNow[i];
         var selectData=document.getElementById(nameId);
-        var selectValue=selectData.value
+        var selectValue=selectData.value;
         switch(selectValue)
         {
             case '1':
@@ -310,8 +298,22 @@ function startAlgoritm()
         for(var j=0;j<howManykriteriNow.length;j++)
         {
             whatInAlternativ.push(document.getElementById("input_number_alternativ_A"+(i+1)+"_"+(j+1)).value);
+            
+            if (whatInAlternativ[whatInAlternativ.length-1]=='')
+            {
+                minAndMaxSelect.length=0;
+                whatInAlternativ.length=0;
+                whatInSelect.length=0;
+                weightKriteri.length=0;
+                nameAlternativ.length=0;
+                weightSumCheck=0;
+                alert("Пропущено значение альтернативы");
+                isSend=false;
+                return;
+            }
         }
     }
+    console.log(whatInAlternativ)
     //Забираем min max
     for(var i=0;i<howManykriteriNow.length;i++)
     {
@@ -324,8 +326,6 @@ function startAlgoritm()
         weightKriteri.push(document.getElementById("input_weight_"+howManykriteriNow[i]).value);
         weightSumCheck+=Number(document.getElementById("input_weight_"+howManykriteriNow[i]).value);
     }
-    //Proverka
-    console.log(weightSumCheck);
     //Забираем название альтернатив
     for(var i=0;i<alternativNow;i++)
     {
@@ -340,16 +340,32 @@ function startAlgoritm()
         weightKriteri.length=0;
         nameAlternativ.length=0;
         weightSumCheck=0;
-        alert("Сумма весов важности должна быть равна единице")
+        alert("Сумма весов важности должна быть равна единице");
+        isSend=false;
         return;
     }
     //Отдаём питону
     const url="/result";
     const xhr=new XMLHttpRequest();
     sender=JSON.stringify(howManykriteriNow.toString()+"/"+weightKriteri.toString()+"/"+minAndMaxSelect.toString()+"/"+whatInAlternativ.toString()+"/"+whatInSelect.toString()+"/"+nameAlternativ.toString());
-    console.log(sender);
     xhr.open('POST',url);
     xhr.send(sender);
+    isSend=true;
+    //Создаём вкладку для Результатов
+    var li=document.getElementById("finish_page");
+    if (document.getElementById("a_finish_page"))
+    {
+        li.removeChild(document.getElementById("a_finish_page"));
+    }
+    if (isSend==true)
+    {
+        var a=document.createElement("a");
+        a.setAttribute("href","/result");
+        a.setAttribute("id","a_finish_page");
+        a.setAttribute("target","_blank");
+        a.appendChild(document.createTextNode("Результат"));
+        li.appendChild(a);
+    }
     //Чистим после отправки массивы
     minAndMaxSelect.length=0;
     whatInAlternativ.length=0;
@@ -382,6 +398,8 @@ function init(){
 let howManykriteriNow=new Array();
 //проверка создана ли таблица уже?
 var isNewTable=true;
+//проверка для создания вкладки Результаты
+var isSend=false;
 //Данные из select в kriteri_table
 let whatInSelect=new Array();
 //Данные из Alternatives

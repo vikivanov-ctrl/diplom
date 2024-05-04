@@ -27,7 +27,8 @@ def result():
         return Response(status=200)
     #отобразить информацию
     else:
-        print(result_info[0])
+        if len(result_info[0])==1:
+            return render_template("result_pareto.html", pareto=result_info[0])
         return render_template('result.html',rang=result_info[0], pairwise=result_info[1], prefer=result_info[2], agregat=result_info[3],
                                 index=result_info[4], kriteri=result_info[5], alt=result_info[6],
                                 flow=result_info[7], flow_plus=result_info[8], flow_minus=result_info[9],
@@ -75,6 +76,10 @@ def PROMETHEEII(information):
     print("Alternativ_after_pareto:")
     print(nameAlternativ)
     print("Pareto:")
+    #Если после Парето осталось 1 альтернатива возвращаем
+    if len(nameAlternativ)==1:
+        result_info.append(nameAlternativ)
+        return 1
     for row in matrix:
         print(row)
     matrix_copy=matrix.copy()
