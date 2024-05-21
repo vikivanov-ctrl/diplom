@@ -270,24 +270,50 @@ function startAlgoritm()
             case '2':
                 qNumber=document.getElementById(nameId+"_last_cell_qNumber");
                 whatInSelect.push(selectValue+' '+"q:"+qNumber.value);
+                // Проверка на пустоту
+                if (qNumber.value.trim().length===0){
+                    alert("Пропущен параметр функции предпочтения");
+                    return;
+                }
                 break;
             case '3':
                 pNumber=document.getElementById(nameId+"_last_cell_pNumber");
                 whatInSelect.push(selectValue+' '+"p:"+pNumber.value);
+                // Проверка на пустоту
+                if (pNumber.value.trim().length===0){
+                    alert("Пропущен параметр функции предпочтения");
+                    return;
+                }
                 break;
             case '4':
                     qNumber=document.getElementById(nameId+"_last_cell_qNumber");
                     pNumber=document.getElementById(nameId+"_last_cell_pNumber");
                     whatInSelect.push(selectValue+' '+"q:"+qNumber.value+' '+"p:"+pNumber.value);
+                    // Проверка на пустоту
+                    if ((qNumber.value.trim().length===0) || (pNumber.value.trim().length===0)){
+                        alert("Пропущен параметр функции предпочтения");
+                        return;
+                    }
                     break;
             case '5':
                 qNumber=document.getElementById(nameId+"_last_cell_qNumber");
                 pNumber=document.getElementById(nameId+"_last_cell_pNumber");
                 whatInSelect.push(selectValue+' '+"q:"+qNumber.value+' '+"p:"+pNumber.value);
+                // Проверка на пустоту
+                if ((qNumber.value.trim().length===0) || (pNumber.value.trim().length===0)){
+                    alert("Пропущен параметр функции предпочтения");
+                    return;
+                }
                 break;
             case '6':
                 sNumber=document.getElementById(nameId+"_last_cell_sNumber");
                 whatInSelect.push(selectValue+' '+"s:"+sNumber.value);
+                console.log(sNumber.value);
+                // Проверка на пустоту
+                if (sNumber.value.trim().length===0){
+                    alert("Пропущен параметр функции предпочтения");
+                    return;
+                }
                 break;
         }
     }
@@ -298,7 +324,7 @@ function startAlgoritm()
         for(var j=0;j<howManykriteriNow.length;j++)
         {
             whatInAlternativ.push(document.getElementById("input_number_alternativ_A"+(i+1)+"_"+(j+1)).value);
-            
+            //Проверка на пропуск ячейки
             if (whatInAlternativ[whatInAlternativ.length-1]=='')
             {
                 minAndMaxSelect.length=0;
@@ -311,6 +337,19 @@ function startAlgoritm()
                 isSend=false;
                 return;
             }
+            //Проверка на отрицательное значение    
+            if (whatInAlternativ[whatInAlternativ.length-1]<0)
+                {
+                    minAndMaxSelect.length=0;
+                    whatInAlternativ.length=0;
+                    whatInSelect.length=0;
+                    weightKriteri.length=0;
+                    nameAlternativ.length=0;
+                    weightSumCheck=0;
+                    alert("Отрицательное значение альтернативы недопустимо");
+                    isSend=false;
+                    return;
+                }
         }
     }
     console.log(whatInAlternativ)
@@ -332,8 +371,9 @@ function startAlgoritm()
         nameAlternativ.push("A"+(i+1));
     }
     //Проверяем сумму весов
-    if (weightSumCheck<0.999)
+    if ((weightSumCheck<0.999) || (weightSumCheck>1.00))
     {
+        console.log(weightSumCheck);
         minAndMaxSelect.length=0;
         whatInAlternativ.length=0;
         whatInSelect.length=0;
