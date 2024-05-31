@@ -166,6 +166,18 @@ function selectFunction(sel) {
             qNumber.setAttribute("type","number");
             qNumber.setAttribute("class","input_number_kriteri");
             qNumber.setAttribute("id",sel.id+"_last_cell_qNumber");
+            if (sel.id == ("function_preference_K4"))
+            {
+                qNumber.setAttribute("value",1024);
+            }
+            if (sel.id == ("function_preference_K5"))
+            {
+                qNumber.setAttribute("value",1024);
+            }
+            if (sel.id == ("function_preference_K6"))
+            {
+                qNumber.setAttribute("value",1024);
+            }
             td.appendChild(qNumber);
             break;
 
@@ -184,6 +196,10 @@ function selectFunction(sel) {
             pNumber.setAttribute("type","number");
             pNumber.setAttribute("class","input_number_kriteri");
             pNumber.setAttribute("id",sel.id+"_last_cell_pNumber");
+            if (sel.id == ("function_preference_K1"))
+            {
+                pNumber.setAttribute("value",15);
+            }
             td.appendChild(pNumber);
             break;
 
@@ -202,12 +218,33 @@ function selectFunction(sel) {
             pNumber.setAttribute("type","number");
             pNumber.setAttribute("class","input_number_kriteri");
             pNumber.setAttribute("id",sel.id+"_last_cell_pNumber");
+            if (sel.id == ("function_preference_K2")||(sel.id == ("function_preference_K3")))
+            {
+                pNumber.setAttribute("value",3);
+            }
+
+            if (sel.id == ("function_preference_K13"))
+            {
+                pNumber.setAttribute("value",24);
+            }
+            
             td.appendChild(pNumber);
+            
             td.innerHTML+=" q:";
             var qNumber=document.createElement("input");
             qNumber.setAttribute("type","number");
             qNumber.setAttribute("class","input_number_kriteri");
             qNumber.setAttribute("id",sel.id+"_last_cell_qNumber");
+
+            if (sel.id == ("function_preference_K2")||(sel.id == ("function_preference_K3")))
+            {
+                qNumber.setAttribute("value",1);
+            }
+
+            if (sel.id == ("function_preference_K13"))
+            {
+                qNumber.setAttribute("value",12);
+            }
             td.appendChild(qNumber);
             break;
 
@@ -226,12 +263,20 @@ function selectFunction(sel) {
             pNumber.setAttribute("type","number");
             pNumber.setAttribute("class","input_number_kriteri");
             pNumber.setAttribute("id",sel.id+"_last_cell_pNumber");
+            if ((sel.id == ("function_preference_K7"))||(sel.id == ("function_preference_K8"))||(sel.id == ("function_preference_K9"))||(sel.id == ("function_preference_K10"))||(sel.id == ("function_preference_K11"))||(sel.id == ("function_preference_K12")))
+            {
+                pNumber.setAttribute("value",3);
+            }
             td.appendChild(pNumber);
             td.innerHTML+=" q:";
             var qNumber=document.createElement("input");
             qNumber.setAttribute("type","number");
             qNumber.setAttribute("class","input_number_kriteri");
             qNumber.setAttribute("id",sel.id+"_last_cell_qNumber");
+            if ((sel.id == ("function_preference_K7"))||(sel.id == ("function_preference_K8"))||(sel.id == ("function_preference_K9"))||(sel.id == ("function_preference_K10"))||(sel.id == ("function_preference_K11"))||(sel.id == ("function_preference_K12")))
+            {
+                qNumber.setAttribute("value",1);
+            }
             td.appendChild(qNumber);
             break;
         //Гауссова функция
@@ -371,7 +416,7 @@ function startAlgoritm()
         nameAlternativ.push("A"+(i+1));
     }
     //Проверяем сумму весов
-    if ((weightSumCheck<0.999) || (weightSumCheck>1.00))
+    if ((weightSumCheck<0.999) || (weightSumCheck>1.010))
     {
         console.log(weightSumCheck);
         minAndMaxSelect.length=0;
@@ -432,6 +477,12 @@ function init(){
     //Кнопка "Начать вычисления"
     buttonStartAlgoritm=document.getElementById("button_start_algoritm");
     buttonStartAlgoritm.onclick=function(){startAlgoritm();}
+
+    //Вызываем onchange для шаблонов
+    for(var i=0;i<13;i++)
+    {
+        selectFunction(document.getElementById("function_preference_K"+(i+1)));
+    }
 }
 
 //массив с выбранными критериями

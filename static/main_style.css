@@ -157,8 +157,6 @@ h3
     outline: 0px;
 }
 
-
-
 .input_number_kriteri
 {
     width: 2em;
@@ -174,7 +172,7 @@ h3
 
 .input_number_alternativ
 {
-    width: 80%;
+    width: 3em;
 }
 
 .alternativ_table
@@ -191,7 +189,7 @@ h3
 .alternativ_table td
 {
     border: 1px solid;
-    width: 10px;
+    width: 1em;
 }
 
 /* Итоговые таблицы*/
